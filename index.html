@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Salary Information in Madrid and Lisbon</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.3/dist/leaflet.css"
+    integrity="sha256-kLaT2GOSpHechhsozzB+flnD+zUyjE2LlfWPgU04xyI="
+    crossorigin=""/>
+    <script src="https://unpkg.com/leaflet@1.9.3/dist/leaflet.js"
+    integrity="sha256-WBkoXOwTeyKclOHuWtc+i2uENFpDZ9YPdf5Hf+D7ewM="
+    crossorigin=""></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/jasmine-html.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jasmine/3.5.0/boot.min.js"></script>
+    
+  </head>
+  <body>
+    <h1>Salary Information</h1>
+    <div class="map-container">
+      <div class="map-info">
+        <h2>Madrid</h2>
+        <form>
+          <h1>Salary Sustainability</h1>
+            <label for="annualSalary">Annual Salary:</label>
+            <input type="number" id="annualSalary" name="annualSalary" required><br><br>
+        
+            <label for="rentMortgage">Rent/Mortgage:</label>
+            <input type="number" id="rentMortgage" name="rentMortgage" required><br><br>
+        
+            <label for="restaurants">Restaurants:</label>
+            <input type="number" id="restaurants" name="restaurants" required><br><br>
+        
+            <label for="markets">Markets:</label>
+            <input type="number" id="markets" name="markets" required><br><br>
+        
+            <label for="transportation">Transportation:</label>
+            <input type="number" id="transportation" name="transportation" required><br><br>
+        
+            <label for="utilities">Utilities:</label>
+            <input type="number" id="utilities" name="utilities" required><br><br>
+        
+            <label for="childcare">Childcare:</label>
+            <input type="number" id="childcare" name="childcare" required><br><br>
+        
+            <label for="clothingShoes">Clothing/Shoes:</label>
+            <input type="number" id="clothingShoes" name="clothingShoes" required><br><br>
+        
+            <label for="sportsLeisure">Sports/Leisure:</label>
+            <input type="number" id="sportsLeisure" name="sportsLeisure" required><br><br>
+        
+            <label for="doctorVisit">Doctor Visit:</label>
+            <input type="number" id="doctorVisit" name="doctorVisit" required><br><br>
+        
+            <label for="streaming">Streaming:</label>
+            <input type="number" id="streaming" name="streaming" required><br><br>
+        
+            <label for="contingency">Contingency:</label>
+            <input type="number" id="contingency" name="contingency" required><br><br>
+        
+            <input type="button" value="Calculate" id="calculateButton">
+        
+          <p id="totalExpenses"></p>
+        </form>
+      </div>
+        </form>
+      </div>
+    </div>
+    <div id="map-madrid" class="map"></div>
+    <script src="script.js"></script>
+    <script src="spec/index.spec.js"></script>
+
+  </body>
+</html>
+
