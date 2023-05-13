@@ -8,6 +8,7 @@ L.marker([40.4168, -3.7038]).addTo(madridMap);
 
 
 
+
 // define a GeoJSON object with average rent prices for different locations, A GeoJSON object is a data format used to represent geographical features or geo structures. 
 const rentPricesData = {
   "type": "FeatureCollection",
