@@ -1,32 +1,36 @@
-const User = require('./models/user');
+const User = require('./user');
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
 
-passport.use(new LocalStrategy(
-  {
-    usernameField: 'email', // name for the username in the request body
-    passwordField: 'password', // password in the request body
-  },
-  async (email, password, done) => {
-    try {
-      // Check if the user exists in the database
-      const user = await User.findOne({ email: email });
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: 'email', // name for the username in the request body
+      passwordField: 'password', // password in the request body
+    },
+    async (email, password, done) => {
+      try {
+        // Check if the user exists in the database
+        const user = await User.findOne({ email: email });
 
-      if (!user) {
-        return done(null, false); // User not found, authentication failed
+        if (!user) {
+          return done(null, false); // User not found, authentication failed
+        }
+
+        // Verify the password
+        const isPasswordValid = await user.verifyPassword(password);
+
+        if (!isPasswordValid) {
+          return done(null, false); // Incorrect password, authentication failed
+        }
+
+        return done(null, user); // Authentication successful
+      } catch (error) {
+        return done(error);
       }
-
-      // Verify the password
-      const isPasswordValid = await user.verifyPassword(password);
-
-      if (!isPasswordValid) {
-        return done(null, false); // incorrect, authentication failed
-      }
-
-      return done(null, user); // authentication successful
-    } catch (error) {
-      return done(error);
     }
-  }
-));
+  )
+);
 
 passport.serializeUser((user, done) => {
   // Store the user ID in the session
